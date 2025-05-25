@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Protect Content</title>
+    <script type="text/javascript">
+        // Disable right-click context menu
+        document.addEventListener("contextmenu", function(e) {
+        	e.preventDefault();
+        });
+        
+        // Disable Ctrl+C and Ctrl+V keys
+        document.addEventListener("keydown", function(e) {
+        	if (e.ctrlKey && (e.key === "c" || e.key === "v")) {
+        		e.preventDefault();
+        		alert("Sorry, copying and pasting is not allowed on this website.");
+        	}
+        });
+        
+        // Detect Print Screen key press
+        document.addEventListener("keydown", function(e) {
+        	if (e.key === "PrintScreen" || e.key === "PrtScr") {
+        		e.preventDefault();
+        		alert("Sorry, screenshots are not allowed on this website.");
+        	}
+        });
+        
+        // Prevent screenshots on mobile devices
+        document.addEventListener("touchstart", function(e) {
+        	e.preventDefault();
+        	alert("Sorry, screenshots are not allowed on this website.");
+        });
+    </script>
+</head>
+
+<body>
+    <p><img src="data:image/jpeg;base64,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" style="margin: 0 auto; display: block; width: 277px; height: 369.333px;"></p>
+    <p><br></p>
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid rgb(0, 0, 0);">
+        <thead>
+            <tr>
+                <th colspan="2" style="width: 99.8814%; border: 1px solid rgb(0, 0, 0);"><span style="font-size: 20px;">Personal Information</span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Name</div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">
+                        <style type="text/css"></style>
+                        <style type="text/css"></style>
+                    </div>
+                    <div style="margin-left: 20px;"> Saw Chit Moe Kyaw</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Roll No.</div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">NTCS-1005</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">NRC. No.</div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">3/MAWATA(N)028571</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Father&apos;s Name</div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">U Hla Sein</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Gender</div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">MALE</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;"><span style='font-size:15px;font-family:"Calibri",sans-serif;color:black;'>Date of Issued</span></div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">10 May 2025</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;"><span style='font-size:15px;font-family:"Calibri",sans-serif;color:black;'>Place of Issued</span></div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Myanmar(Online)</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;"><span style='font-size:15px;font-family:"Calibri",sans-serif;color:black;'>Title of Training</span></div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Novice Teacher</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 45.531%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Training Type</div>
+                </td>
+                <td style="width: 54.2478%; border: 1px solid rgb(0, 0, 0);">
+                    <div style="margin-left: 20px;">Training of Teacher</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px; font-family: Calibri, sans-serif; color: black;">&nbsp;</span></article>
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid rgb(0, 0, 0);">
+        <tbody>
+            <tr>
+                <td style="width: 99.8814%; border: 1px solid rgb(0, 0, 0);" colspan="3">
+                    <div style="text-align: center;">Course From Training&nbsp;</div>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">No.</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);">Content</td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">Duration</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">1</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Introduction to Computer Science Education&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">5 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">2</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Understanding Bloom&apos;s Taxonomy&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">4 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">3</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Basics of Computer Hardware and Software&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">2 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">4</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Fundamentals of Algorithms and Problem Solving&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">4 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">5</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Introduction to Kreative Kid&rsquo;s Lab Level-1&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">6 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">6</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Classroom Management and Pedagogical Strategies&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">6 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">7</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Assessment Methods for Level-1&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">5 Hours</td>
+            </tr>
+            <tr>
+                <td style="width: 5.9905%; text-align: center; border: 1px solid rgb(0, 0, 0);">8</td>
+                <td style="width: 77.9434%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;'>Practical Teaching Exercises and Peer Feedback&nbsp;</span></td>
+                <td style="width: 16.0068%; text-align: center; border: 1px solid rgb(0, 0, 0);">6 Hours</td>
+            </tr>
+        </tbody>
+    </table>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><br></article>
+    <table style="width: 100%; border-collapse: collapse; border: 1px solid rgb(0, 0, 0);">
+        <tbody>
+            <tr>
+                <td style="width: 39.8888%; text-align: center; border: 1px solid rgb(0, 0, 0);" colspan="2"><span style="font-size: 19px; font-family: Impact, Charcoal, sans-serif; color: black;">Engagement Point</span></td>
+                <td style="width: 20.037%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style="font-size: 19px; font-family: Impact, Charcoal, sans-serif; color: black;">Given Rate</span></td>
+                <td style="width: 20.0334%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style="font-family: Impact, Charcoal, sans-serif;">Get Rate</span></td>
+                <td style="width: 19.8998%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style="font-family: Impact, Charcoal, sans-serif;">Grade</span></td>
+            </tr>
+            <tr>
+                <td style="width: 6.6626%; text-align: center; border: 1px solid rgb(0, 0, 0);">1</td>
+                <td style="width: 33.2097%; text-align: center; border: 1px solid rgb(0, 0, 0);"><span style='font-size:16px;font-family:"Calibri",sans-serif;color:black;'>Attendance Percent</span><br></td>
+                <td style="width: 20.0371%; text-align: center; border: 1px solid rgb(0, 0, 0);">100 %</td>
+                <td style="width: 20.0334%; text-align: center; border: 1px solid rgb(0, 0, 0);">100%</td>
+                <td style="width: 19.8998%; text-align: center; border: 1px solid rgb(0, 0, 0);">A+</td>
+            </tr>
+            <tr>
+                <td style="width: 6.6626%; text-align: center; border: 1px solid rgb(0, 0, 0);">2</td>
+                <td style="width: 33.2097%; text-align: center; border: 1px solid rgb(0, 0, 0);">Assignment</td>
+                <td style="width: 20.0371%; text-align: center; border: 1px solid rgb(0, 0, 0);">10 Pts</td>
+                <td style="width: 20.0334%; text-align: center; border: 1px solid rgb(0, 0, 0);">5</td>
+                <td style="width: 19.8998%; text-align: center; border: 1px solid rgb(0, 0, 0);">B</td>
+            </tr>
+            <tr>
+                <td style="width: 6.6778%; text-align: center; border: 1px solid rgb(0, 0, 0);">3</td>
+                <td style="width: 33.2097%; text-align: center; border: 1px solid rgb(0, 0, 0);">Lesson Planing</td>
+                <td style="width: 20.0371%; text-align: center; border: 1px solid rgb(0, 0, 0);">10 Pts</td>
+                <td style="width: 20.0334%; text-align: center; border: 1px solid rgb(0, 0, 0);">7</td>
+                <td style="width: 19.8998%; text-align: center; border: 1px solid rgb(0, 0, 0);">A</td>
+            </tr>
+            <tr>
+                <td style="width: 6.6626%; text-align: center; border: 1px solid rgb(0, 0, 0);">4</td>
+                <td style="width: 33.2097%; text-align: center; border: 1px solid rgb(0, 0, 0);">Assessment</td>
+                <td style="width: 20.0371%; text-align: center; border: 1px solid rgb(0, 0, 0);">25 Pts</td>
+                <td style="width: 20.0334%; text-align: center; border: 1px solid rgb(0, 0, 0);">&nbsp;20 Pts</td>
+                <td style="width: 19.8998%; text-align: center; border: 1px solid rgb(0, 0, 0);">A</td>
+            </tr>
+        </tbody>
+    </table>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><br></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px; font-family: Calibri, sans-serif; color: black;">၁။&nbsp;</span><span style='font-size: 16px; font-family: "Myanmar Text", sans-serif; color: black;'>အထက်ဖော်ပြပါ ဆရာ/ဆရာမသည် ကျွန်ုပ်တို့ Kreative Kid&rsquo;s Lab ၏ TOT Level-1 (Novice Teacher) ဖြစ်သင်တန်းကို Next Kreative မှ တဆင့်ကျင်းပခဲ့ရာတွင် ပါဝင်ခဲ့ပါသည်။&nbsp;</span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px;"><em><strong><span style='font-family: "Myanmar Text", sans-serif; color: rgb(147, 101, 184);'>1. The teacher mentioned above participated in our Kreative Kid&apos;s Lab&apos;s TOT Level-1 (Novice Teacher) course held from Next Kreative.</span></strong></em></span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style='font-size: 16px; font-family: "Myanmar Text", sans-serif; color: black;'>၂။ သင်တန်းကာလ တစ်လျှောက်လုံးတွင် ၎င်း၏ သင်တန်းတက်ရောက်ခဲ့မှုအခြေအနေနှင့် စွမ်းဆောင်ရည်များကို အထက်ပါအတိုင်း ဖော်ပြထားသည်မှာ မှန်ကန်ပါသည်။</span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px;"><em><strong><span style='font-family: "Myanmar Text", sans-serif; color: rgb(147, 101, 184);'>2. It is true that his attendance status and performance throughout the training period are stated as above.</span></strong></em></span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style='font-size: 16px; font-family: "Myanmar Text", sans-serif; color: black;'>၃။ အဆိုပါဆရာ/ဆရာမသည် ကျွန်ုပ်တို့၏ အခြေခံပညာကျောင်းသားများအတွက် Kreative Kid&rsquo;s Lab ကွန်ပျူတာသိပ္ပံ Series ၏ အဆင့် (၈) ခုအနက် အဆင့်(၁) အား ပြန်လည်သင်ကြားပြသခွင့်ရှိပါသည်။</span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px;"><em><strong><span style='font-family: "Myanmar Text", sans-serif; color: rgb(147, 101, 184);'>3. This teacher is eligible to re-teach Level 1 of our 8-level Kreative Kid&apos;s Lab Computer Science Series for kids.</span></strong></em></span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style='font-size: 16px; font-family: "Myanmar Text", sans-serif; color: black;'>၄။ အထက်ဖော်ပြပါ ဆရာ/ဆရာမ၏ ကျွန်ုပ်တို့ထံမှ သင်တန်းတက်ရောက်စဉ် အချက်အလက်များအားလုံး မှန်ကန်ကြောင်း Kreative Kid&rsquo;s Lab မှ အာမခံပါသည်။&nbsp;</span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px;"><strong><em><span style='font-family: "Myanmar Text", sans-serif; color: rgb(147, 101, 184);'>4. Kreative Kid&apos;s Lab warrants that all information provided by the above-mentioned teacher while attending the course from us is correct.</span></em></strong></span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style="font-size: 16px;"><strong><em><span style='font-family: "Myanmar Text", sans-serif; color: black;'>&nbsp;</span></em></strong></span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><span style='font-size: 16px; font-family: "Myanmar Text", sans-serif; color: black;'>၅။ အဆိုပါဆရာ/ဆရာမ၏ ကျွန်ုပ်တို့ TOTသင်တန်း တက်ရောက်ခဲ့မှုနှင့်ပတ်သက်၍ သိရှိလိုပါက <a href="mailto:info@kkl.education"><span style="color:black;">info@kkl.education</span></a> သို့လည်းကောင်း +95940020001 သို့လည်းကောင်း ဆက်သွယ်စုံစမ်းနိုင်ပါသည်။</span></article>
+    <article style="margin: 0cm 0cm 8pt 20px; font-family: Calibri, sans-serif; font-size: 11pt; background: white; text-align: justify;"><strong><em><span style='font-size: 16px; font-family: "Myanmar Text", sans-serif; color: rgb(147, 101, 184);'>5. If you want to know about that teacher&apos;s attendance at our TOT course, you can contact info@kkl.education or +95940020001.</span></em></strong></article>
+    <p><br></p>
+    <p><br></p>
+    <p><br></p>
+</body>
+
+</html>
